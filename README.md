@@ -29,7 +29,6 @@ Download the YCB Video toolbox from [here](https://github.com/yuxng/YCB_Video_to
 Download the segmentation results of PVNet from [here](https://drive.google.com/file/d/1u5Mtd8vVIa0f6Fo6EbVglVWhJeo8onPw/view?usp=sharing) to downloaded Occluded LINEMOD dataset directory. `<local path to Occluded LINEMOD dataset>/labels_pvnet`
 ##### YCB Video and LIENMOD objects models can be cound in `<local path to 6D_pose_estimation_particle_filter repo>/models`
 
-https://drive.google.com/file/d/1u5Mtd8vVIa0f6Fo6EbVglVWhJeo8onPw/view?usp=sharing
 
 ## Runing the demo (for saving the estimated pose results)
 Run `$ ./save_lmo_estimation.sh` for estimating on the Occluded LINEMOD, `$ ./save_ycb_estimation.sh` for estimating on the YCB Video dataset.
