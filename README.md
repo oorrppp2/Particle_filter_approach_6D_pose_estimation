@@ -49,5 +49,12 @@ We contain the results of experiments recorded in our paper. Replace the argumen
     (Ours with Mask R-CNN input) :          --dataset lmo --save_path results/lmo_mask_RCNN_input/
     (Ours with PVNet mask input) :          --dataset lmo --save_path results/lmo_PVNet_input/ in our paper.
 
-## Training Center Prediction Network(CPN)
+## Demo for Centroid Prediction Network
+### Training Centroid Prediction Network(CPN)
+Run `$ ./train_CPN.sh` after filling out your local path of the YCB Video dataset in the argument of --dataset_root_dir of the sh file.
+Weight file would be saved in: `<local path to 6D_pose_estimation_particle_filter directory>/CenterFindNet/trained_model/`
 
+### Evaluating Centroid Prediction Network(CPN)
+If you want to evaluate with own your trained model, add the line that argument of --model_path in the `eval_CPN_<dataset>.sh`.
+Or you can run directly `$ ./eval_CPN_ycb.sh` for the YCB Video dataset, `$ ./eval_CPN_lmo.sh` for the Occluded LINEMOD.
+If you run it with "--visualization True", the result of projection into the image would be shown on the window.
