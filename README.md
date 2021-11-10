@@ -16,6 +16,7 @@ Change compile.sh line 5 to the glm library include path. This library can be do
     $ sh compile.sh
     $ cd ..
     $ conda env create -f requirements.yaml
+    $ conda activate pf_with_cpn
 
 ## Preparing the datasets and toolbox
 ### YCB Video dataset
@@ -40,6 +41,5 @@ Run `$ ./eval_lmo.sh` for estimating on the Occluded LINEMOD, `$ ./eval_ycb.sh` 
 
 We contains the results of `(Ours - Multi initial translation) --> --dataset ycb --save_path results/ycb_multi_init_trans/`, `(Ours - 180 particles) --> --dataset ycb --save_path results/ycb_180_particles/`, `(Ours with Mask R-CNN input) --> --dataset lmo --save_path results/lmo_mask_RCNN_input/`, `(Ours with PVNet mask input) --> --dataset lmo --save_path results/lmo_PVNet_input/` in our paper.
 
+## Training Center Prediction Network(CPN)
 
-### 
-  $ conda activate pf_with_cpn
