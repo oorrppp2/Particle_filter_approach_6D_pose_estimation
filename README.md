@@ -42,7 +42,12 @@ There are 4 options that you can fill out (You must fill out `--dataset_root_dir
 ## Evaluating on the saved results
 Run `$ ./eval_lmo.sh` for estimating on the Occluded LINEMOD, `$ ./eval_ycb.sh` for estimating on the YCB Video dataset. This step has to be run after the saving pose results. Or you can run with `--save_path results/ycb_multi_init_trans/` in `eval_ycb.sh` line 5 for checking the performance of the our result.
 
-We contains the results of `(Ours - Multi initial translation) --> --dataset ycb --save_path results/ycb_multi_init_trans/`, `(Ours - 180 particles) --> --dataset ycb --save_path results/ycb_180_particles/`, `(Ours with Mask R-CNN input) --> --dataset lmo --save_path results/lmo_mask_RCNN_input/`, `(Ours with PVNet mask input) --> --dataset lmo --save_path results/lmo_PVNet_input/` in our paper.
+We contain the results of experiments recorded in our paper. Replace the argument of --dataset, --save_path in the file to below.
+
+    (Ours - Multi initial translation) : --dataset ycb --save_path results/ycb_multi_init_trans/
+    (Ours - 180 particles) : --dataset ycb --save_path results/ycb_180_particles/
+    (Ours with Mask R-CNN input) : --dataset lmo --save_path results/lmo_mask_RCNN_input/
+    (Ours with PVNet mask input) : --dataset lmo --save_path results/lmo_PVNet_input/ in our paper.
 
 ## Training Center Prediction Network(CPN)
 
