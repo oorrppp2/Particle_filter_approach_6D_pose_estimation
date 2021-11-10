@@ -28,9 +28,14 @@ Download the YCB Video toolbox from [here](https://github.com/yuxng/YCB_Video_to
 
 ## Runing the demo (for saving the estimated pose results)
 Run `$ ./save_lmo_estimation.sh` for estimating on the Occluded LINEMOD, `$ ./save_ycb_estimation` for estimating on the YCB Video dataset.
+
 There are 4 options that you can fill out (You must fill out `--dataset_root_dir` as your datasets local directory.) :
  * dataset : `lmo` for Occluded LINEMOD, `ycb` for YCB Video
  * dataset_root_dir : <your local path to 6D_pose_estimation_particle_filter directory>/test/000002
- * 
+ * save_path : The directory to save the estimated pose. ex) `results/lmo/`
+ * visualization : If you don't want to watch how the prediction going on, set this `False`. Default is True.
+
+## Evaluating on the saved results
+Run `$ ./eval_lmo.sh` for estimating on the Occluded LINEMOD, `$ ./eval_ycb.sh` for estimating on the YCB Video dataset. This step has to be run after the saving pose results. Or you can run with `--save_path results/ycb_multi_init_trans/` in `eval_ycb.sh` line 5 for checking the performance of the our result.
 ### 
   $ conda activate pf_with_cpn
