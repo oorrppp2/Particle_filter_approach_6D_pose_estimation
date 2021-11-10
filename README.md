@@ -16,7 +16,12 @@ Change compile.sh line 5 to the glm library include path. This library can be do
     $ sh compile.sh
     $ cd ..
     $ conda env create -f requirements.yaml
-  
-code end
+
+## Preparing the datasets and toolbox
+### YCB Video dataset
+Download the YCB Video dataset by following the comments [here](https://github.com/yuxng/PoseCNN/issues/81) to your local datasets folder.
+### Occluded LINEMOD dataset
+Download the Occluded LINEMOD dataset from [BOP: Benchmark for 6D Object Pose Estimation](https://bop.felk.cvut.cz/datasets/) or you can directly download [here](https://ptak.felk.cvut.cz/6DB/public/bop_datasets/lmo_test_all.zip) to your local datasets folder.
+
 
   $ conda activate pf_with_cpn
