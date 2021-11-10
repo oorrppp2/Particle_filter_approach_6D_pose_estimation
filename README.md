@@ -44,10 +44,10 @@ Run `$ ./eval_lmo.sh` for estimating on the Occluded LINEMOD, `$ ./eval_ycb.sh` 
 
 We contain the results of experiments recorded in our paper. Replace the argument of --dataset, --save_path in the file to below.
 
-    (Ours - Multi initial translation) : --dataset ycb --save_path results/ycb_multi_init_trans/
-    (Ours - 180 particles) : --dataset ycb --save_path results/ycb_180_particles/
-    (Ours with Mask R-CNN input) : --dataset lmo --save_path results/lmo_mask_RCNN_input/
-    (Ours with PVNet mask input) : --dataset lmo --save_path results/lmo_PVNet_input/ in our paper.
+    (Ours - Multi initial translation) :    --dataset ycb --save_path results/ycb_multi_init_trans/
+    (Ours - 180 particles) :                --dataset ycb --save_path results/ycb_180_particles/
+    (Ours with Mask R-CNN input) :          --dataset lmo --save_path results/lmo_mask_RCNN_input/
+    (Ours with PVNet mask input) :          --dataset lmo --save_path results/lmo_PVNet_input/ in our paper.
 
 ## Training Center Prediction Network(CPN)
 
