@@ -24,5 +24,6 @@ Download the YCB Video dataset by following the comments [here](https://github.c
 Download the Occluded LINEMOD dataset from [BOP: Benchmark for 6D Object Pose Estimation](https://bop.felk.cvut.cz/datasets/) or you can directly download [here](https://ptak.felk.cvut.cz/6DB/public/bop_datasets/lmo_test_all.zip) to your local datasets folder.
 ### YCB Video toolbox
 Download the YCB Video toolbox from [here](https://github.com/yuxng/YCB_Video_toolbox) to `<local path to 6D_pose_estimation_particle_filter repo>/CenterFindNet` directory.
+##### YCB Video and LIENMOD objects models can be cound in `<local path to 6D_pose_estimation_particle_filter repo>/models`
 
   $ conda activate pf_with_cpn
