@@ -9,3 +9,14 @@
 We tested on Ubuntu 18.04.
 
 ## Installation
+
+Change compile.sh line 5 to the glm library include path. This library can be downloaded from this <https://github.com/g-truc/glm>.
+
+
+  $ cd lib
+  $ sh compile.sh
+  $ cd ..
+  $ conda env create -f requirements.yaml
+  
+  
+  $ conda activate pf_with_cpn
