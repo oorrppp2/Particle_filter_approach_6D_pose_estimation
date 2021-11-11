@@ -36,6 +36,7 @@ It can downloaded from [here](https://drive.google.com/file/d/1eNNI85d3VU2GKBQfg
 ##### YCB Video and LIENMOD objects models can be cound in `<local path to 6D_pose_estimation_particle_filter repo>/models`
 
 ## Demo for 6D pose estimation
+You can evaluate the results after saving the estimated pose first.
 ### Runing the demo (for saving the estimated pose results)
 Run `$ ./save_lmo_estimation.sh` for estimating on the Occluded LINEMOD, `$ ./save_ycb_estimation.sh` for estimating on the YCB Video dataset.
 
@@ -44,6 +45,8 @@ There are 4 options that you can fill out (You must fill out `--dataset_root_dir
  * dataset_root_dir : <your local path to 6D_pose_estimation_particle_filter directory>/test/000002
  * save_path : The directory to save the estimated pose. ex) `results/lmo/`
  * visualization : If you don't want to watch how the prediction going on, set this `False`. Default is True.
+There is an additional option of choosing the input mask type for the demo of Occluded LINEMOD. We evaluated the 6D pose results on each input segmentation mask of Mask R-CNN and PVNet.
+ * input_mask : Choose between `pvnet` and `mask_rcnn` as input mask.
 
 ### Evaluating on the saved results
 Run `$ ./eval_lmo.sh` for estimating on the Occluded LINEMOD, `$ ./eval_ycb.sh` for estimating on the YCB Video dataset. This step has to be run after the saving pose results. Or you can run with `--save_path results/ycb_multi_init_trans/` in `eval_ycb.sh` line 5 for checking the performance of the our result.
