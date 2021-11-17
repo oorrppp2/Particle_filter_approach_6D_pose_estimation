@@ -19,6 +19,7 @@ Change compile.sh line 5 to the glm library include path. This library can be do
     $ conda activate pf_with_cpn
 
 Or you can just run below in your own anaconda environment.
+
     $ pip install opencv-python transforms3d open3d scipy
 
 ## Preparing the datasets and toolbox
