@@ -18,6 +18,9 @@ Change compile.sh line 5 to the glm library include path. This library can be do
     $ conda env create -f requirements.yaml
     $ conda activate pf_with_cpn
 
+Or you can just run below in your own anaconda environment.
+    $ pip install opencv-python transforms3d open3d scipy
+
 ## Preparing the datasets and toolbox
 ### YCB Video dataset
 Download the YCB Video dataset by following the comments [here](https://github.com/yuxng/PoseCNN/issues/81) to your local datasets folder.
