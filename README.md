@@ -4,7 +4,7 @@
  * __CMake >= 3.17__
  * __Python >= 3.6__
  * __CUDA >= 10.2__     (We tested on CUDA 10.2)
- * __Pytorch >= 1.7.1__ (We tested on Pytorch 1.7.1 and 1.9)
+ * __Pytorch >= 1.5.0__ (We tested on Pytorch 1.5 and 1.7.1 and 1.9)
 
 It currently works on Ubuntu 18.04. You can try this code using [docker](https://www.docker.com/) if your OS is not Ubuntu 18.04.
 
