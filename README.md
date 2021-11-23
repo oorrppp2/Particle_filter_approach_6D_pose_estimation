@@ -52,6 +52,7 @@ There are 7 options that you can fill out (You must fill out `--dataset_root_dir
  * gaussian_std(float) : This is Gaussian standard diviation of Eq.(5) in the paper. Default is 0.1.
  * max_iteration(int) : This value is the maximum number of iterations for an object. Default is 20.
  * tau(float) : This is the start value of misalignment tolerance &tau;<sub>0</sub>. It is decreased from &tau;<sub>0</sub> to 0.1*&tau;<sub>0</sub>. Default is 0.1.
+ * num_particles(int) : This is the number of particles. Default is 180.
 
 There is an additional option of choosing the input mask type for the demo of Occluded LINEMOD. We evaluated the 6D pose results on each input segmentation mask of Mask R-CNN and PVNet.
  * input_mask : Choose between `pvnet` and `mask_rcnn` as input mask. Default is `pvnet`.
