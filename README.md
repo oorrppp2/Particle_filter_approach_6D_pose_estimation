@@ -28,7 +28,11 @@ Download the YCB Video dataset by following the comments [here](https://github.c
 ### Occluded LINEMOD dataset
 Download the Occluded LINEMOD dataset from [BOP: Benchmark for 6D Object Pose Estimation](https://bop.felk.cvut.cz/datasets/) or you can directly download [here](https://ptak.felk.cvut.cz/6DB/public/bop_datasets/lmo_test_all.zip) to your local datasets folder.
 ### YCB Video toolbox
-Download the YCB Video toolbox from [here](https://github.com/yuxng/YCB_Video_toolbox) to `<local path to 6D_pose_estimation_particle_filter directory>/CenterFindNet/YCB_Video_toolbox` directory.
+Download the YCB Video toolbox from [here](https://github.com/yuxng/YCB_Video_toolbox) to `<local path to 6D_pose_estimation_particle_filter directory>/CenterFindNet/YCB_Video_toolbox` directory. And unzip `results_PoseCNN_RSS2018.zip`.
+
+    $ cd <local path to 6D_pose_estimation_particle_filter directory>/CenterFindNet/YCB_Video_toolbox
+    $ unzip unzip results_PoseCNN_RSS2018.zip
+    
 ### PVNet segmentation results
 We generated the segmentation results by using the segmentation network, and pre-trained model from [PVNet](https://github.com/zju3dv/pvnet) in off-line.
 To evaluate the Occluded LINEMOD with PVNet segmentation mask, those segmentation results are required.
