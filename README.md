@@ -44,11 +44,14 @@ You can evaluate the results after saving the estimated pose first.
 ### Runing the demo (for saving the estimated pose results)
 Run `$ ./save_lmo_estimation.sh` for estimating on the Occluded LINEMOD, `$ ./save_ycb_estimation.sh` for estimating on the YCB Video dataset.
 
-There are 4 options that you can fill out (You must fill out `--dataset_root_dir` as your datasets local directory.) :
- * dataset : `lmo` for Occluded LINEMOD, `ycb` for YCB Video
- * dataset_root_dir : <your local path to 6D_pose_estimation_particle_filter directory>/test/000002
- * save_path : The directory to save the estimated pose. ex) `results/lmo/`
- * visualization : If you don't want to watch how the prediction going on, set this `False`. Default is True.
+There are 7 options that you can fill out (You must fill out `--dataset_root_dir` as your datasets local directory.) :
+ * dataset(str) : `lmo` for Occluded LINEMOD, `ycb` for YCB Video
+ * dataset_root_dir(str) : <your local path to 6D_pose_estimation_particle_filter directory>/test/000002
+ * save_path(str) : The directory to save the estimated pose. ex) `results/lmo/`
+ * visualization(bool) : If you don't want to watch how the prediction going on, set this `False`. Default is True.
+ * gaussian_std(float) : This is Gaussian standard diviation of Eq.(5) in the paper. Default is 0.1.
+ * max_iteration(int) : This value is the maximum number of iterations for an object. Default is 20.
+ * tau(float) : This is the start value of misalignment tolerance $tau_0$. It is decreased from $tau_0$ to $0.1 * tau_0$. Default is 0.1.
 
 There is an additional option of choosing the input mask type for the demo of Occluded LINEMOD. We evaluated the 6D pose results on each input segmentation mask of Mask R-CNN and PVNet.
  * input_mask : Choose between `pvnet` and `mask_rcnn` as input mask. Default is `pvnet`.
