@@ -1,4 +1,4 @@
-# Particle_filter_approach_6D_pose_estimation
+# CPN: Better Initialization for a Particle Filter in 6D Object Pose Estimation
 
 ## Requirements
  * __CMake >= 3.17__
