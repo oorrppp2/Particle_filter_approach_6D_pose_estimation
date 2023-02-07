@@ -6,11 +6,11 @@
  * __CUDA >= 10.2__     (We tested on CUDA 10.2)
  * __Pytorch >= 1.5.0__ (We tested on Pytorch 1.5 and 1.7.1 and 1.9)
 
-It currently works on Ubuntu 18.04. You can try this code using [docker](https://www.docker.com/) if your OS is not Ubuntu 18.04.
+We tested this code on Ubuntu 18.04.
 
 ## Installation
 
-Change compile.sh line 5 to the glm library include path. This library can be downloaded from this [link](https://github.com/g-truc/glm).
+Change lib/compile.sh line 5 to the glm library include path. This library can be downloaded from this [link](https://github.com/g-truc/glm).
 
     $ cd lib
     $ sh compile.sh
@@ -18,7 +18,7 @@ Change compile.sh line 5 to the glm library include path. This library can be do
     $ conda env create -f requirements.yaml
     $ conda activate pf_with_cpn
 
-Or you can just run below in your own anaconda environment.
+Install python packages:
 
     $ pip install opencv-python transforms3d open3d scipy
 
@@ -33,43 +33,30 @@ Download the YCB Video toolbox from [here](https://github.com/yuxng/YCB_Video_to
     $ cd <local path to 6D_pose_estimation_particle_filter directory>/CenterFindNet/YCB_Video_toolbox
     $ unzip unzip results_PoseCNN_RSS2018.zip
     
-### PVNet segmentation results
-We generated the segmentation results by using the segmentation network, and pre-trained model from [PVNet](https://github.com/zju3dv/pvnet) in off-line.
-To evaluate the Occluded LINEMOD with PVNet segmentation mask, those segmentation results are required.
-It can downloaded from [here](https://drive.google.com/file/d/1u5Mtd8vVIa0f6Fo6EbVglVWhJeo8onPw/view?usp=sharing) to downloaded Occluded LINEMOD dataset directory. `<local path to Occluded LINEMOD dataset>/test/000002/labels_pvnet`
-### Mask R-CNN segmentation results
-We generated the segmentation results by using the [Mask R-CNN](https://github.com/matterport/Mask_RCNN) network, and pre-trained model from [Pix2Pose](https://github.com/kirumang/Pix2Pose) in off-line.
-To evaluate the Occluded LINEMOD with Mask R-CNN segmentation mask, those segmentation results are required.
-It can downloaded from [here](https://drive.google.com/file/d/1eNNI85d3VU2GKBQfg4aqv0bbQGvkIXJU/view?usp=sharing) to downloaded Occluded LINEMOD dataset directory. `<local path to Occluded LINEMOD dataset>/test/000002/labels_mask_rcnn`
-##### YCB Video and LIENMOD objects models can be cound in `<local path to 6D_pose_estimation_particle_filter repo>/models`
-
 ## Demo for 6D pose estimation
 You can evaluate the results after saving the estimated pose first.
 ### Runing the demo (for saving the estimated pose results)
-Run `$ ./save_lmo_estimation.sh` for estimating on the Occluded LINEMOD, `$ ./save_ycb_estimation.sh` for estimating on the YCB Video dataset.
+Run `$ ./save_ycb_estimation.sh` for estimating on the YCB Video dataset.
 
 There are 8 options that you can fill out (You must fill out `--dataset_root_dir` as your datasets local directory.) :
- * dataset(str) : `lmo` for Occluded LINEMOD, `ycb` for YCB Video
- * dataset_root_dir(str) : <your local path to 6D_pose_estimation_particle_filter directory>/test/000002
- * save_path(str) : The directory to save the estimated pose. ex) `results/lmo/`
- * visualization(bool) : If you don't want to watch how the prediction going on, set this `False`. Default is True.
- * gaussian_std(float) : This is Gaussian standard diviation of Eq.(5) in the paper. Default is 0.1.
- * max_iteration(int) : This value is the maximum number of iterations for an object. Default is 20.
- * tau(float) : This is the start value of misalignment tolerance &tau;<sub>0</sub>. It is decreased from &tau;<sub>0</sub> to 0.1*&tau;<sub>0</sub>. Default is 0.1.
- * num_particles(int) : This is the number of particles. Default is 180.
+ * dataset (str) : `ycb` for YCB Video
+ * dataset_root_dir (str) : `example: ~~/YCB_Video_Dataset`
+ * save_path (str) : The directory to save the estimated pose. ex) `results/ycb/`
+ * visualization (bool) : If you don't want to watch how the prediction going on, set this `False`. Default is True.
+ * gaussian_std (str) : This is Gaussian standard diviation of Eq.(5) in the paper. Default is 0.1. You have to set this value for each class. `example: 0.1 0.2 0.3 0.15 (The number of classes is 4.)`
+ * tau (str) : This is the start value of misalignment tolerance &tau;<sub>0</sub>. It is decreased from &tau;<sub>0</sub> to 0.1*&tau;<sub>0</sub>. Default is 0.1. You have to set this value for each class. `example: 0.1 0.2 0.3 0.15 (The number of classes is 4.)`
+ * max_iteration (int) : This value is the maximum number of iterations for an object. Default is 20.
+ * num_particles (int) : This is the number of particles. Default is 100.
 
-There is an additional option of choosing the input mask type for the demo of Occluded LINEMOD. We evaluated the 6D pose results on each input segmentation mask of Mask R-CNN and PVNet.
- * input_mask : Choose between `pvnet` and `mask_rcnn` as input mask. Default is `pvnet`.
+There is an additional option related to the ablation study.
+If you set `w_o_CPN` as `True`, you can get the result generated without CPN.
+If you set `w_o_Scene_occlusion` as `True`, you can get the result generated without considering scene occlusion.
+ * w_o_CPN (bool) : Default is False.
+ * w_o_Scene_occlusion (bool) : Default is False.
+
 
 ### Evaluating on the saved results
-Run `$ ./eval_lmo.sh` for estimating on the Occluded LINEMOD, `$ ./eval_ycb.sh` for estimating on the YCB Video dataset. This step has to be run after the saving pose results. Or you can run with `--save_path results/ycb_multi_init_trans/` in `eval_ycb.sh` line 5 for checking the performance of the our result.
-
-We contain the results of experiments recorded in our paper. Replace the argument of --dataset, --save_path in the file to below.
-
-    (Ours - Multi initial translation) :    --dataset ycb --save_path results/ycb_multi_init_trans/
-    (Ours - 180 particles) :                --dataset ycb --save_path results/ycb_180_particles/
-    (Ours with Mask R-CNN input) :          --dataset lmo --save_path results/lmo_mask_RCNN_input/
-    (Ours with PVNet mask input) :          --dataset lmo --save_path results/lmo_PVNet_input/ in our paper.
+Run `$ ./eval_ycb.sh` for estimating on the YCB Video dataset. This step has to be run after the saving pose results. Or you can run with `--save_path results/ycb/` in `eval_ycb.sh` line 5 for checking the performance of the our result.
 
 ## Demo for Centroid Prediction Network
 ### Training Centroid Prediction Network(CPN)
