@@ -1,5 +1,8 @@
 # 6D Object Pose Estimation using a Particle Filter with Better Initialization
 
+GiJae Lee, Jun-Sik Kim, Seungryong Kim, KangGeon Kim
+This repository contains source codes for the paper "6D Object Pose Estimation using a Particle Filter with Better Initialization." (IEEE Access 2022)
+
 ## Requirements
  * __CMake >= 3.17__
  * __Python >= 3.6__
