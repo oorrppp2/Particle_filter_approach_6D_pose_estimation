@@ -21,9 +21,6 @@ import matplotlib.pyplot as plt
 import numpy.ma as ma
 import open3d as o3d
 
-from filterpy.monte_carlo import systematic_resample
-from filterpy.monte_carlo import stratified_resample
-
 from sample import *
 from utils import quaternion_matrix, calc_pts_diameter, draw_object
 from scipy import spatial
